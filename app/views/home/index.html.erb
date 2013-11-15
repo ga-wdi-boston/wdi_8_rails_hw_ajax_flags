@@ -6,5 +6,8 @@
   <span class="flag <%=country.abbreviation %>"></span>
   <%else %>
   <% end %>
+  <%= render "country" %>
 </div>
 <% end %>
+
+ <%#= link_to 'Load More Posts', :page => @countries.next_page, :class => 'load-more-countries', :remote => true if @countries.next_page %>
