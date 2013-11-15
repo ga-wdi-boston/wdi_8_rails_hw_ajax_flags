@@ -1,1 +1,8 @@
 <h1>index</h1>
+<% @countries.each do |country| %>
+<div>
+  <%= country.name %>
+  <%= country.abbreviation %>
+  <span>PNG</span>
+</div>
+<% end %>
