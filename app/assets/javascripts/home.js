@@ -9,8 +9,16 @@ var Flags = {
 
 	},
 	infiniteScroll: function() {
+	// 	 $(document).infiniteScroll({
+ //        bottomPixels: 50,
+ //        fireDelay: 10,
+ //        callback: function(i) {
+ //          var last_img = $(".flag:nth-child(20)");
+ //          last_img.after(last_img.prev().prev().prev().prev().prev().prev().clone());
+ //        }
+ //      });
 
-	}
+	// }
 };
 
 $(document).ready(function() {
@@ -19,3 +27,4 @@ $(document).ready(function() {
 	$('#show-more-countries-button').click(Flags.showMoreCountries);
 	$(window).scroll(Flags.infiniteScroll);
 });
+
