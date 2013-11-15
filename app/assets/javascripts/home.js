@@ -9,17 +9,13 @@ var Flags = {
 
 	},
 	infiniteScroll: function() {
-	// 	 $(document).infiniteScroll({
- //        bottomPixels: 50,
- //        fireDelay: 10,
- //        callback: function(i) {
- //          var last_img = $(".flag:nth-child(20)");
- //          last_img.after(last_img.prev().prev().prev().prev().prev().prev().clone());
- //        }
- //      });
-
-	// }
-};
+		$(window).scroll(function(){  
+			if  ($(window).scrollTop() == $(document).height() - $(window).height()){ 
+				loadArticle(count);  
+				count++;  
+			}  
+		});    
+	});
 
 $(document).ready(function() {
 	$('#populate-all-button').click(Flags.populateAllCountries);
