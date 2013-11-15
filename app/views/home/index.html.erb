@@ -1,8 +1,10 @@
 <h1>index</h1>
 <% @countries.each do |country| %>
-<div>
+<div class="f32">
   <%= country.name %>
-  <%= country.abbreviation %>
-  <span>PNG</span>
+  <%if country.abbreviation %>
+  <span class="flag <%=country.abbreviation %>"></span>
+  <%else %>
+  <% end %>
 </div>
 <% end %>
