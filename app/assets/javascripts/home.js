@@ -1,11 +1,20 @@
+'use strict';
+
 var Flags = {
 	populateAllCountries: function() {
-
+		// $.ajax({
+  //     url: '/countries',
+  //     dataType: 'script',
+  //     success: function(script {
+  //       script();
+  //     });
+		// });
 	},
 	resetAllCountries: function() {
-
+    // $('#flags').clear
 	},
 	showMoreCountries: function() {
+
 
 	},
 	infiniteScroll: function() {
