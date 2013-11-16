@@ -2,10 +2,12 @@ class HomeController < ApplicationController
 	respond_to :json, :js, :html
 
   def index
-    @countries = Country.all
+    # @countries = Country.all
+   
   end
 
   def countries
+    @countries = Country.order('name').page(params[:page]).per_page(20)
   	 # respond_with Country.from(params[:step])to(params[:offset])
   end
 

@@ -11,14 +11,16 @@ var Flags = {
 		// });
 	},
 	resetAllCountries: function() {
-    // $('#flags').clear
+    $('#flags').clear
 	},
 	showMoreCountries: function() {
 
 
 	},
 	infiniteScroll: function() {
-
+    if ($(window).scrollTop > ($(document).height() - $(window).height() - 50)) {
+    	$.getScript($('countries'))
+    }
 	}
 };
 
@@ -28,3 +30,4 @@ $(document).ready(function() {
 	$('#show-more-countries-button').click(Flags.showMoreCountries);
 	$(window).scroll(Flags.infiniteScroll);
 });
+

@@ -7,8 +7,5 @@
 </div>
 
 <div id="flags">
-  <% @countries.each do |country| %>
-    <div class="f32 flag <%= country.abbreviation %>"></div>
-    <div class="country-name"><%= country.name %></div>
-  <% end %>
+  <%= render partial: "home/country", collection: @countries %>
 </div>
