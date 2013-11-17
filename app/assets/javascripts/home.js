@@ -8,14 +8,36 @@ var Flags = {
     $('#flags').empty();
 	},
 	showMoreCountries: function() {
-		$.getScript($('.pagination .next_page').attr('href'));
+		$('#flags').load('/countries');
+	},
+
+	element_in_scroll: function(elem) {
+    var docViewTop = $(window).scrollTop();
+    var docViewBottom = docViewTop + $(window).height();
+ 
+    var elemTop = $(elem).offset().top;
+    var elemBottom = elemTop + $(elem).height();
+ 
+    return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
 	},
 	infiniteScroll: function() {
-    if ( $(window).scrollTop() > $(document).height() - $(window).height() - 50 ) {
-    	$.getScript($('.pagination .next_page').attr('href'));
+		if (Flags.element_in_scroll('#flags div:last')) {
+      $(document).unbind('scroll');
+	      $.ajax({
+	          type: 'GET',
+            url: document.location.href,
+            data: { text_filter:  $('#text_filter').attr('value'), index_count:$('#index_count').attr('value'),json: "true" }
+        }).done(function( data ) {
+	          $('#flags').append(data.html);
+	          });
+    // if ( $(window).scrollTop() > $(document).height() - $(window).height() - 50 ) {
+    // 	$('#flags').load('/countries');
+    // }
     }
 	}
-};
+
+
+}
 
 $(document).ready(function() {
 	$('#populate-all-button').click(Flags.populateAllCountries);
