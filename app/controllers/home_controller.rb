@@ -7,11 +7,11 @@ class HomeController < ApplicationController
 
   def countries
     @countries = Country.order('name ASC').limit(params[:step]).offset(params[:offset])
-      respond_with @countries
+    respond_with @countries
   end
 
   def country
-    # @country = Country.where(params[:id])
+    @country = Country.where(params[:id])
   end
 
   def all

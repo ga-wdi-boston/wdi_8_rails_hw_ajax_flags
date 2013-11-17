@@ -15,8 +15,8 @@ var Flags = {
 	},
 
 	populateAllCountries: function() {
-      var offset = $('#flags .country').length || 0;
-      $.ajax({
+    var offset = $('#flags .country').length || 0;
+    $.ajax({
       url: '/all',
       data: {offset: offset},
       dataType: 'json',
@@ -45,9 +45,9 @@ var Flags = {
 
 	infiniteScroll: function() {
 
- //  if ( $(window).scrollTop() > $(document).height() - $(window).height() - 50 ) {
- //  	showMoreCountries();
- //  }
+    if ( $(window).scrollTop() > $(document).height() - $(window).height() - 50 ) {
+    	Flags.showMoreCountries();
+    }
 
 	}
 
