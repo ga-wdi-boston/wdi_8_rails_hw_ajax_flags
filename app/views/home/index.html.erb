@@ -1,7 +1,7 @@
 <% @countries.each do |country| %>
   <div class='f32'>
     <span><%= country.name %></span>
-    <span class="flag <%=country.abbreviation %>"></span>
+    <span class="flag <%= country.abbreviation %>"></span>
     <span><%= country.abbreviation %></span>
   </div>
 <% end %>
