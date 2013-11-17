@@ -1,4 +1,29 @@
-<h1>index</h1>
-<div data-total-countries="<%= @countries.length %>" class="countries-container"></div>
+<% unless params['start'] %>
+  <h1>index</h1>
+  <div data-total-countries="<%= @countries.length %>" class="countries-container">
+<% end %>
 
+<% if params['start'] %>
+  <% @start = params['start'].to_i %>
+  <% @end = params['start'].to_i + 20 %>
+<% else %>
+  <% @start = 0 %>
+  <% @end = 19 %>
+<% end %>
+
+<% for i in (@start..@end) %>
+<% country = @countries[i] %>
+<div class="f32">
+  <%= country.name %>
+  <%if country.abbreviation %>
+  <span class="flag <%=country.abbreviation %>"></span>
+  <% else %>
+  <% end %>
+  <%= render "country" %>
+</div>
+<% end %>
+
+<% unless params['start'] %>
+</div>
+<% end %>
  <%#= link_to 'Load More Posts', :page => @countries.next_page, :class => 'load-more-countries', :remote => true if @countries.next_page %>
