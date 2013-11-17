@@ -9,13 +9,14 @@ var Flags = {
 
 	},
 	infiniteScroll: function() {
-		var flagCount = $('.f32').length;
+		var flagsLoaded = $('.f32').length;
+		var flagsTotal  = $('.countries-container').data('total-countries'); // the data function reads data attributes out of the DOM
 		$(window).scroll(function(){  
-			if  ($(window).scrollTop() == $(document).height() - $(window).height()){ //scrollTop == how far you are scrolled down; doc height is the height of the page rendered at once. window height is the height ofthe window
+			if ($(window).scrollTop() == $(document).height() - $(window).height() && flagsLoaded < flagsTotal){ //scrollTop == how far you are scrolled down; doc height is the height of the page rendered at once. window height is the height ofthe window
 				$.ajax({
 					url: "", //my partial 
 					data: { 
-						start: flagCount //hey start at flag twenty one dumbass
+						start: flagsLoaded //hey start at flag twenty one dumbass
 					}
 				})
 			}  

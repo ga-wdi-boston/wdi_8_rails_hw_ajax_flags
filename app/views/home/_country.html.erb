@@ -1,0 +1,13 @@
+<%= @start = params['start'].to_i %>
+<%= @end = params['start'].to_i + 20 %>
+<% for i in (@start..@end) %>
+<% country = @countries[i] %>
+<div class="f32">
+  <%= country.name %>
+  <%if country.abbreviation %>
+  <span class="flag <%=country.abbreviation %>"></span>
+  <% else %>
+  <% end %>
+  <%= render "country" %>
+</div>
+<% end %>
