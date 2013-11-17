@@ -1,4 +1,26 @@
-span.flag {
-  height: 100px;
-  width: 100px;
+body {
+  text-align: center;
+  font-family: Gill Sans;
+  font-size: 40px;
+  width: 1400px;
+}
+
+.f32 {
+  border: 1px solid black;
+}
+
+.country-name {
+  float: left;
+  width: 750px;
+}
+
+.country-abbr {
+  float: right;
+  width: 80px;
+}
+
+.flag {
+  -webkit-transform: scale(1.5);
+  margin: 7px 200px 0 0;
+  /*float: right;*/
 }
