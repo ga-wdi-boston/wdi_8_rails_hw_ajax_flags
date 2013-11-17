@@ -1,4 +1,5 @@
-<p>this is the root</p>
+<% @countries.each do |country| %>
+		<p><%= country.name %>, <%= country.abbreviation %></p>
+<% end %>
 
-<p>this is rendering the country partial:</p>
 <p><%= render 'country' %></p>
