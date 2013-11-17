@@ -1,4 +1,7 @@
-<% unless params['start'] %>
+<% unless params['start'] %> 
+  <button id="reset-button"> Clear All </button> 
+  <button id="show-more-countries-button"> Load 20 More</button>
+  <button id="populate-all-button"> Load All </button>
   <h1>index</h1>
   <div data-total-countries="<%= @countries.length %>" class="countries-container">
 <% end %>
@@ -34,5 +37,5 @@
 <% unless params['start'] %>
   </div>
   <!-- buttons -->
-  <button id="populate-all-button"> Gotta Load em' All! </button> 
+
 <% end %>
