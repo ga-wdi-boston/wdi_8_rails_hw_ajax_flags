@@ -1,9 +1,23 @@
 var Flags = {
-
 	isLoading: false,
-
 	populateAllCountries: function() {
+		var flagsLoaded = $('.f32').length;
+		var flagsTotal  = $('.countries-container').data('total-countries');
 
+		if (flagsLoaded < flagsTotal && !Flags.isLoading) {
+			Flags.isLoading = true;
+
+			$.ajax({
+				url: "/", //my partial 
+				data: { 
+					loadAll: true,
+					start: flagsLoaded  //when the ajax request is sent, this is giving it a 'start' request parameter. hey start at flag twenty one. This is what to change, i think.
+				}
+			}).done(function(data){
+					$('.countries-container').append(data);
+					Flags.isLoading = false;
+			}); 
+		}
 	},
 	resetAllCountries: function() {
 
@@ -23,7 +37,7 @@ var Flags = {
 			$.ajax({
 				url: "/", //my partial 
 				data: { 
-					start: flagsLoaded   //hey start at flag twenty one dumbass. This is what to change, i thin
+					start: flagsLoaded   //when the ajax request is sent, this is giving it a 'start' request parameter. hey start at flag twenty one. This is what to change, i thin
 				}
 			}).done(function(data){
 					$('.countries-container').append(data);

@@ -3,14 +3,20 @@
   <div data-total-countries="<%= @countries.length %>" class="countries-container">
 <% end %>
 
-<% if params['start'] %>
+<% if params['start'] %> <!-- we get a parameter start fromm the user -->
 
   <% @start = params['start'].to_i %>
-  <% @end = params['start'].to_i + 19 %>
+  <% if params['loadAll'] %>
+    <% @end = @countries.length - 1 %>
+  <% else %>
+    <% @end = params['start'].to_i + 19 %>
+  <% end %>
 
 <% else %>
+
   <% @start = 0 %>
   <% @end = 19 %>
+
 <% end %>
 
 <% for i in (@start..@end) %>
@@ -27,4 +33,6 @@
 
 <% unless params['start'] %>
   </div>
+  <!-- buttons -->
+  <button id="populate-all-button"> Gotta Load em' All! </button> 
 <% end %>
