@@ -1,4 +1,16 @@
-
+/*#flags {
+	width: 100px;
+	height: 500px;
+	border: 2px blue solid;
+	text-align: center;
+	background-color: gold;
+	overflow: scroll;
+}
+*/
+.country {
+	border: 2px blue dashed;
+	padding: 5px;
+}
 
 .flag{display:inline-block;height:32px;width:32px;vertical-align:text-top;line-height:32px;background:url(flags32.png) no-repeat;}
 ._African_Union(OAS){background-position:0 -32px;}

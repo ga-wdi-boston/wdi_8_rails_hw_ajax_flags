@@ -7,5 +7,9 @@
 </div>
 
 <div id="flags">
-  <%= render partial: "home/country", collection: @countries %>
+  <%= render @countries %>
 </div>
+
+<%#= link_to "Load more countries", countries_path(:page => @countries.next_page), :class => 'load-more-countries', :remote => true if @countries.next_page %>
+
+<%= will_paginate @countries, :page_links => false %>

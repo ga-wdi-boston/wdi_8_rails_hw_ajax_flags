@@ -2,24 +2,17 @@
 
 var Flags = {
 	populateAllCountries: function() {
-		// $.ajax({
-  //     url: '/countries',
-  //     dataType: 'script',
-  //     success: function(script {
-  //       script();
-  //     });
-		// });
+		$.getScript('/all');
 	},
 	resetAllCountries: function() {
-    $('#flags').clear
+    $('#flags').empty();
 	},
 	showMoreCountries: function() {
-
-
+		$.getScript($('.pagination .next_page').attr('href'));
 	},
 	infiniteScroll: function() {
-    if ($(window).scrollTop > ($(document).height() - $(window).height() - 50)) {
-    	$.getScript($('countries'))
+    if ( $(window).scrollTop() > $(document).height() - $(window).height() - 50 ) {
+    	$.getScript($('.pagination .next_page').attr('href'));
     }
 	}
 };

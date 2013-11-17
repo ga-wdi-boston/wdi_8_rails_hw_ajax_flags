@@ -1,18 +1,22 @@
 class HomeController < ApplicationController
-	respond_to :json, :js, :html
+	# respond_to :json, :js, :html
 
   def index
-    # @countries = Country.all
-   
+    @countries = Country.paginate(:page => params[:page])
   end
 
-  def countries
-    @countries = Country.order('name').page(params[:page]).per_page(20)
-  	 # respond_with Country.from(params[:step])to(params[:offset])
-  end
+  # def countries
+  #   @countries = Country.paginate(:page => params[:page])
+  # end
 
   def country
     # @country = Country.where(params[:id])
   end
+
+  def all
+    @countries = Country.all
+    respond_with @countries
+  end
+
 
 end
