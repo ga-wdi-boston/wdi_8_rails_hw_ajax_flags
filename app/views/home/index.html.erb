@@ -3,8 +3,6 @@
   <div data-total-countries="<%= @countries.length %>" class="countries-container">
 <% end %>
 
-<%#= will_paginate @countries %>
-
 <% if params['start'] %>
 
   <% @start = params['start'].to_i %>
@@ -16,18 +14,17 @@
 <% end %>
 
 <% for i in (@start..@end) %>
-<% country = @countries[i] %>
-<div class="f32">
-  <%= country.name %>
-  <%if country.abbreviation %>
-  <span class="flag <%=country.abbreviation %>"></span>
-  <% else %>
-  <% end %>
-  <%= render "country" %>
-</div>
+  <% country = @countries[i] %>
+  <div class="f32">
+    <%= country.name %>
+    <%if country.abbreviation %>
+    <span class="flag <%=country.abbreviation %>"></span>
+    <% else %>
+    <% end %>
+    <%= render "country" %>
+  </div>
 <% end %>
 
 <% unless params['start'] %>
-</div>
+  </div>
 <% end %>
- <%#= link_to 'Load More Posts', :page => @countries.next_page, :class => 'load-more-countries', :remote => true if @countries.next_page %>
