@@ -3,9 +3,13 @@
   <div data-total-countries="<%= @countries.length %>" class="countries-container">
 <% end %>
 
+<%#= will_paginate @countries %>
+
 <% if params['start'] %>
+<% binding.pry %>
   <% @start = params['start'].to_i %>
   <% @end = params['start'].to_i + 20 %>
+ 
 <% else %>
   <% @start = 0 %>
   <% @end = 19 %>
