@@ -9,10 +9,6 @@ h4 {
   margin: 0;
 }
 
-.paginator {
-  font-size: 18px;
-}
-
 .f32 {
   border: 1px solid black;
 }
@@ -30,4 +26,8 @@ h4 {
 .flag {
   -webkit-transform: scale(1.5);
   margin: 7px 200px 0 0;
+}
+
+#find-flag {
+  font-size: 18px;
 }
