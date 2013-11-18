@@ -14,6 +14,7 @@ var Flags = {
 };
 
 $(document).ready(function() {
+	alert("dom is loaded!");
 	$('#populate-all-button').click(Flags.populateAllCountries);
 	$('#reset-button').click(Flags.resetAllCountries);
 	$('#show-more-countries-button').click(Flags.showMoreCountries);
