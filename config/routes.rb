@@ -3,3 +3,4 @@ AjaxFlags::Application.routes.draw do
   get "/countries/:step/:offset" => "home#countries"
   get "/country/:id" => "home#country"
 end
+

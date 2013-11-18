@@ -1,0 +1,51 @@
+<% unless params['ajax'] %>
+
+<h1>Countries List</h1>
+
+<div id="navbar">
+	<button id="populate-all-button">Populate Page</button>
+	<button id="reset-button">Reset Countries</button>
+	<button id="show-more-countries-button">Show More Countries</button>
+</div>
+
+<% end %>
+
+<% if params['ajax'] %>
+	<% @start = params['start'].to_i %>
+	<% if params['show_all'] %>
+		<% @end = @countries.length %>
+	<% else %>
+		<% @end = params['start'].to_i + 19 %>
+	<% end %>
+<% else %>
+	<% @start = 0 %>
+	<% @end = 19 %>
+<% end %>
+
+
+
+
+
+<% unless params['ajax'] %>
+	<div data-total-countries="<%= @countries.length %>" id="countries">
+<% end %>
+
+<% for i in (@start..@end) %>
+	<% if @countries[i] %>
+		<% country = @countries[i] %>
+		<div class="f32">
+			<%= country.name %>
+			<div class="<%= country.abbreviation %> flag">
+
+
+				
+			</div>
+			
+		</div>
+	<% end %>
+<% end %>
+
+<% unless params['ajax'] %>
+	</div>
+<% end %>
+	
