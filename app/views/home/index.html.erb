@@ -1,0 +1,41 @@
+<% unless params['start'] %> 
+  <button id="reset-button"> Clear All </button> 
+  <button id="show-more-countries-button"> Load 20 More</button>
+  <button id="populate-all-button"> Load All </button>
+  <h1>index</h1>
+  <div data-total-countries="<%= @countries.length %>" class="countries-container">
+<% end %>
+
+<% if params['start'] %> <!-- we get a parameter start fromm the user -->
+
+  <% @start = params['start'].to_i %>
+  <% if params['loadAll'] %>
+    <% @end = @countries.length - 1 %>
+  <% else %>
+    <% @end = params['start'].to_i + 19 %>
+  <% end %>
+
+<% else %>
+
+  <% @start = 0 %>
+  <% @end = 19 %>
+
+<% end %>
+
+<% for i in (@start..@end) %>
+  <% country = @countries[i] %>
+  <div class="f32">
+    <%= country.name %>
+    <%if country.abbreviation %>
+    <span class="flag <%=country.abbreviation %>"></span>
+    <% else %>
+    <% end %>
+    <%= render "country" %>
+  </div>
+<% end %>
+
+<% unless params['start'] %>
+  </div>
+  <!-- buttons -->
+
+<% end %>
