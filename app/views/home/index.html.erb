@@ -1,7 +1,3 @@
- <%= paginate @countries %>
-
-<% @countries.each do |country| %>
-	<p><%= country.name %>, <%= country.abbreviation %></p>
-<% end %>
+<%= paginate @countries, remote: true %>
 
 <p><%= render 'country' %></p>

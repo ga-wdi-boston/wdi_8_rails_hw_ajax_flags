@@ -1,1 +1,3 @@
-this is a partial
+<% @countries.each do |country| %>
+	<p><%= country.name %>, <%= country.abbreviation %></p>
+<% end %>
