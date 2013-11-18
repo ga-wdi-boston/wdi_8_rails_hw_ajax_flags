@@ -5,6 +5,10 @@ body {
   width: 1400px;
 }
 
+h4 {
+  margin: 0;
+}
+
 .paginator {
   font-size: 18px;
 }
