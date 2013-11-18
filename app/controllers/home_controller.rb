@@ -7,6 +7,7 @@ class HomeController < ApplicationController
   end
 
   def countries
-
+    @countries = Country.order(:name).limit(params[:step]).offset(params[:offset])
+    respond_with @countries
   end
 end
