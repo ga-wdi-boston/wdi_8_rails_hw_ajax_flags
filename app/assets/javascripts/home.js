@@ -6,9 +6,10 @@ var Flags = {
 		$('.f32').hide();
 	},
 	showMoreCountries: function() {
-		var i = 1;
-		for (; i < 21;) {
-			$('#flags:nth-child(' + i + ')').show();
+		Flags.resetAllCountries();
+		var i = 5;
+		for (; i < 25;) {
+			$('.f32:nth-child(' + i + ')').show();
 			i += 1;
 		}
 	},
