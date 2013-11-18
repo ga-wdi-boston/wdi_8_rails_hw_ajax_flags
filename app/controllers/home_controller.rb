@@ -8,7 +8,7 @@ class HomeController < ApplicationController
   end
 
   def load
-    @countries = Country.limit(20).offset(params[:offset])
+    @countries = Country.limit(params[:limit]).offset(params[:offset])
     respond_to do |format|
       format.js
     end
