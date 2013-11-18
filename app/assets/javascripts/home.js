@@ -1,12 +1,16 @@
 var Flags = {
 	populateAllCountries: function() {
-
+		$('.f32').show();
 	},
 	resetAllCountries: function() {
 		$('.f32').hide();
 	},
 	showMoreCountries: function() {
-
+		var i = 1;
+		for (; i < 21;) {
+			$('#flags:nth-child(' + i + ')').show();
+			i += 1;
+		}
 	},
 	infiniteScroll: function() {
 

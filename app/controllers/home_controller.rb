@@ -3,6 +3,7 @@ class HomeController < ApplicationController
 
   def index
     @countries = Country.order(:name)
+    respond_with @countries
   end
 
   def countries
