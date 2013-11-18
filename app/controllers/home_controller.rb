@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
-  def index
-		@countries = Country.order(:name).page params[:page]
+
+	def index
+		@countries = Country.order("name").page(params[:page]) 
   end
 
   def countries
