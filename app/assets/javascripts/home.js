@@ -15,6 +15,7 @@ var Flags = {
 	},
 	showSelectedCountry: function(e) {
 		var nation = $('#country-name-field').val();
+		$('#country-name-field').val('');
 		e.preventDefault();
 		Flags.resetAllCountries();
 		$('.f32:contains(' + nation + ')').show();

@@ -9,8 +9,4 @@ class HomeController < ApplicationController
   def countries
 
   end
-
-  def country # this doesn't work
-    @country = Country.where(params[:id])
-  end
 end
