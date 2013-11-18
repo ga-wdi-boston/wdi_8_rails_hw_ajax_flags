@@ -1,3 +1,5 @@
+<%= will_paginate @countries %>
+
 <% @countries.each do |country| %>
   <div class='f32'>
     <span class="country-name"><%= country.name %></span>
@@ -5,3 +7,5 @@
     <span class="country-abbr"><%= country.abbreviation %></span>
   <br /></div>
 <% end %>
+
+<%= will_paginate @countries %>
