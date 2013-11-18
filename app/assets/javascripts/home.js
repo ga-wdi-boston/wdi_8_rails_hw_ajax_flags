@@ -1,9 +1,9 @@
 var Flags = {
 	populateAllCountries: function() {
-
+		$('.f32').show();
 	},
 	resetAllCountries: function() {
-
+		$('.f32').hide();
 	},
 	showMoreCountries: function() {
 
