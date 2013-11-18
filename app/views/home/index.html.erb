@@ -1,13 +1,17 @@
 
+<button id='show-more-countries'>Show More</button>
+<button id='populate-all-button'>Populate All</button>
+<button id='reset_button'>Reset</button>
+
+
 
 
 <ul>
 	<% @countries.each do |country| %>
-		<li>
+		<li class='f32'>
 			<p><%= country.name %> (<%= country.abbreviation %>)</p>
-			
+			<img class='<%= country.abbreviation %>' src='assets/flags32.png' height='40px' width='60px'>
 		</li>
 	<% end %>
 </ul>
 
-<img src="assets/flags32.png" alt="Flags" >

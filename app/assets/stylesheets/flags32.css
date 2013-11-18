@@ -3,6 +3,8 @@
  * Uses flags32.png as a sprite
  */
 
+/*#ad {background-position:0 -704px;}*/
+
 .f32 .flag{display:inline-block;height:32px;width:32px;vertical-align:text-top;line-height:32px;background:url(flags32.png) no-repeat;}
 .f32 ._African_Union(OAS){background-position:0 -32px;}
 .f32 ._Arab_League{background-position:0 -64px;}
