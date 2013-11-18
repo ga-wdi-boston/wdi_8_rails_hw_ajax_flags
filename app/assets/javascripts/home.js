@@ -6,6 +6,7 @@ var Flags = {
 		$('.f32').hide();
 	},
 	showMoreCountries: function() {
+		// only shows the first 20 countries currently
 		Flags.resetAllCountries();
 		var i = 5;
 		for (; i < 25;) {
@@ -14,6 +15,7 @@ var Flags = {
 		}
 	},
 	showSelectedCountry: function(e) {
+		// TODO: get rid of query string in URL
 		var nation = $('#country-name-field').val();
 		$('#country-name-field').val('');
 		e.preventDefault();
