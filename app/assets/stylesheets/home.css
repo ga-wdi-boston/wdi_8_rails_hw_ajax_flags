@@ -5,6 +5,10 @@ body {
   width: 1400px;
 }
 
+.paginator {
+  font-size: 18px;
+}
+
 .f32 {
   border: 1px solid black;
 }
