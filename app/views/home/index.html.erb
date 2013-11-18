@@ -31,16 +31,18 @@
 <% end %>
 
 <% for i in (@start..@end) %>
-	<% country = @countries[i] %>
-	<div class="f32">
-		<%= country.name %>
-		<div class="<%= country.abbreviation %> flag">
+	<% if @countries[i] %>
+		<% country = @countries[i] %>
+		<div class="f32">
+			<%= country.name %>
+			<div class="<%= country.abbreviation %> flag">
 
 
+				
+			</div>
 			
 		</div>
-		
-	</div>
+	<% end %>
 <% end %>
 
 <% unless params['ajax'] %>
