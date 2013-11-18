@@ -7,7 +7,7 @@
 	<% @countries.each do |country| %>
 		<li class='f32'>
 			<p><%= country.name %> (<%= country.abbreviation %>)</p>
-			<img class='<%= country.abbreviation %>' src='assets/flags32.png' height='40px' width='60px'>
+			<img class='flag <%= country.abbreviation%>'>
 		</li>
 	<% end %>
 </ul>
