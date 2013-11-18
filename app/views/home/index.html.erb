@@ -27,7 +27,7 @@
 
 
 <% unless params['ajax'] %>
-	<div id="countries">
+	<div data-total-countries="<%= @countries.length %>" id="countries">
 <% end %>
 
 <% for i in (@start..@end) %>

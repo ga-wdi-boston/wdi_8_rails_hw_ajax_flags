@@ -1,4 +1,7 @@
 var Flags = {
+
+	loading: false,
+
 	populateAllCountries: function() {
 
 	},
@@ -6,16 +9,21 @@ var Flags = {
 
 	},
 	showMoreCountries: function() {
-		$.ajax({
-	  	url: "/",
-	  	data: {
-	  		ajax: true,
-	  		start: 70
-	  	}
-		}).done(function() {
-	  	$( this ).addClass( "done" );
-		});
-
+		var loaded = $('.f32').length;
+		var total = parseInt($('#countries').data('total-countries'));
+		if (loaded < total && !Flags.loading) {
+			Flags.loading = true;
+			$.ajax({
+		  	url: "/",
+		  	data: {
+		  		ajax: true,
+		  		start: loaded
+		  	}
+			}).done(function(data) {
+		  	$('#countries').append(data);
+		  	Flags.loading = false;
+			});
+		}
 	},
 	infiniteScroll: function() {
 
