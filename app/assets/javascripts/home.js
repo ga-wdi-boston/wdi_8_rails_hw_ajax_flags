@@ -6,6 +6,15 @@ var Flags = {
 
 	},
 	showMoreCountries: function() {
+		$.ajax({
+	  	url: "/",
+	  	data: {
+	  		ajax: true,
+	  		start: 70
+	  	}
+		}).done(function() {
+	  	$( this ).addClass( "done" );
+		});
 
 	},
 	infiniteScroll: function() {
@@ -19,3 +28,4 @@ $(document).ready(function() {
 	$('#show-more-countries-button').click(Flags.showMoreCountries);
 	$(window).scroll(Flags.infiniteScroll);
 });
+

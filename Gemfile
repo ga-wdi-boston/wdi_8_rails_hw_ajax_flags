@@ -21,7 +21,7 @@ gem 'jbuilder', '~> 1.2'
 
 
 # allows pagination/ infinite scroll
-gem 'will_paginate', '~> 3.0'
+
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

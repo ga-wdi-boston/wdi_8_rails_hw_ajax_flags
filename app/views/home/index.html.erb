@@ -1,3 +1,5 @@
+<% unless params['ajax'] %>
+
 <h1>Countries List</h1>
 
 <div id="navbar">
@@ -6,16 +8,42 @@
 	<button id="show-more-countries-button">Show More Countries</button>
 </div>
 
+<% end %>
 
-<div id="country-name">
-<% @countries.each do |country| %>
+<% if params['ajax'] %>
+	<% @start = params['start'].to_i %>
+	<% if params['show_all'] %>
+		<% @end = @countries.length %>
+	<% else %>
+		<% @end = params['start'].to_i + 19 %>
+	<% end %>
+<% else %>
+	<% @start = 0 %>
+	<% @end = 19 %>
+<% end %>
+
+
+
+
+
+<% unless params['ajax'] %>
+	<div id="countries">
+<% end %>
+
+<% for i in (@start..@end) %>
+	<% country = @countries[i] %>
 	<div class="f32">
 		<%= country.name %>
 		<div class="<%= country.abbreviation %> flag">
+
+
 			
 		</div>
 		
 	</div>
 <% end %>
-</div>
+
+<% unless params['ajax'] %>
+	</div>
+<% end %>
 	
