@@ -1,18 +1,19 @@
 var Flags = {
 	populateAllCountries: function() {
-		$.getScript($('#paginator .pagination .next').attr('href'));
+
 	},
 	resetAllCountries: function() {
 
 	},
-	showMoreCountries: function() {
 
+	showMoreCountries: function() {
+		$.getScript($('#paginator .pagination .next').attr('href'));
 	},
+
 	infiniteScroll: function() {
     var win = $(window);
-    // Infinite scroll math!
-    if(win.height() + win.scrollTop() >= $(document).height()) {
-      populateCountries();
+    if($(window).scrollTop() > $(document).height() - $(window).height()) {
+      Flags.showMoreCountries();
     }
   }
 };

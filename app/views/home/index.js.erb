@@ -1,2 +1,4 @@
+// $("#paginator").append("<div id='countries'><%= escape_javascript(render('country')) %></div>");
+
 $('#countries').html('<%= escape_javascript render('country') %>');
 $('#paginator').html('<%= escape_javascript(paginate(@countries, :remote => true).to_s) %>');
