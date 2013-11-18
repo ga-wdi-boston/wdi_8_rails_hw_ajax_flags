@@ -1,6 +1,6 @@
 var Flags = {
 	populateAllCountries: function() {
-
+		$.getScript($('#paginator .pagination .next').attr('href'));
 	},
 	resetAllCountries: function() {
 
@@ -9,30 +9,12 @@ var Flags = {
 
 	},
 	infiniteScroll: function() {
-		var currentPage = 1;
-
-		function checkScroll() {
-		  if (nearBottomOfPage()) {
-		    currentPage++;
-		    new Ajax.Request('/countries.js?page=' + currentPage, {asynchronous:true, evalScripts:true, method:'get'});
-		  } else {
-		    setTimeout("checkScroll()", 250);
-		  }
-		}
-
-		function nearBottomOfPage() {
-		  return scrollDistanceFromBottom() < 150;
-		}
-
-		function scrollDistanceFromBottom(argument) {
-		  return pageHeight() - (window.pageYOffset + self.innerHeight);
-		}
-
-		function pageHeight() {
-		  return Math.max(document.body.scrollHeight, document.body.offsetHeight);
-		}
-
-		document.observe('dom:loaded', checkScroll);
+    var win = $(window);
+    // Infinite scroll math!
+    if(win.height() + win.scrollTop() >= $(document).height()) {
+      populateCountries();
+    }
+  }
 };
 
 $(document).ready(function() {
