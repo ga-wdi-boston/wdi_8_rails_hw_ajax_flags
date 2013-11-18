@@ -1,14 +1,21 @@
-<h1>Countries are coming soon!</h1>
+<h1>Countries List</h1>
 
-<div id="nav">
+<div id="navbar">
 	<button id="populate-all-button">Populate Page</button>
 	<button id="reset-button">Reset Countries</button>
 	<button id="show-more-countries-button">Show More Countries</button>
 </div>
 
-<div id="flags">
-	<% @countries.each do |country| %>
-	<div class="f32 flag <%= country.abbreviation %>"></div>
-	<div class="country-name">@country.name</div>
-	<% end %>
+
+<div id="country-name">
+<% @countries.each do |country| %>
+	<div class="f32">
+		<%= country.name %>
+		<div class="<%= country.abbreviation %> flag">
+			
+		</div>
+		
+	</div>
+<% end %>
 </div>
+	
