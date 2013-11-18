@@ -11,7 +11,7 @@ var Flags = {
 				start: flagsLoaded
 			};
 
-			if (loadAll) {
+			if (loadAll === true) {
 				params.loadAll = true;
 			}
 
@@ -28,7 +28,7 @@ var Flags = {
 		$('.countries-container').empty();
 	},
 	infiniteScroll: function() { 
-		var atBottom = $(window).scrollTop() == $(document).height() - $(window).height();
+		var atBottom = $(window).scrollTop() === $(document).height() - $(window).height();
 		var flagsLoaded = $('.f32').length;
 		var flagsTotal  = $('.countries-container').data('total-countries'); // the data function reads data attributes out of the DOM
 
@@ -53,9 +53,7 @@ var Flags = {
 			Flags.loadMoreCountries(true); //cannot call event handler with params, have to use anon function
 		});
 		$('#reset-button').click(Flags.resetAllCountries); //my comments are strange
-		$('#show-more-countries-button').click(function(){
-			Flags.loadMoreCountries();
-		}); //the sexy $('') thing is the selector
+		$('#show-more-countries-button').click(Flags.loadMoreCountries); //the sexy $('') thing is the selector
 		$(window).scroll(Flags.infiniteScroll); //scroll binding. and event handler is a function that is called when an event fires
 	}
 };
