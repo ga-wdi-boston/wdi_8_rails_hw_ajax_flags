@@ -5,12 +5,17 @@ var Flags = {
 	resetAllCountries: function() {
 
 	},
+
 	showMoreCountries: function() {
-
+		$.getScript($('#paginator .pagination .next').attr('href'));
 	},
-	infiniteScroll: function() {
 
-	}
+	infiniteScroll: function() {
+    var win = $(window);
+    if($(window).scrollTop() > $(document).height() - $(window).height()) {
+      Flags.showMoreCountries();
+    }
+  }
 };
 
 $(document).ready(function() {
