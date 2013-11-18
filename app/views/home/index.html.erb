@@ -1,0 +1,13 @@
+
+
+
+<ul>
+	<% @countries.each do |country| %>
+		<li>
+			<p><%= country.name %> (<%= country.abbreviation %>)</p>
+			
+		</li>
+	<% end %>
+</ul>
+
+<img src="assets/flags32.png" alt="Flags" >
