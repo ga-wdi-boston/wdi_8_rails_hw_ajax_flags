@@ -15,7 +15,6 @@ class HomeController < ApplicationController
   end
 
   def all
-    binding.pry
     @countries = Country.order('name ASC').offset(params[:offset])
     respond_with @countries
   end
