@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
   def index
-  end
+		@countries = Country.limit(20)
+	end
 
   def countries
   end
