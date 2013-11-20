@@ -1,7 +1,7 @@
 var Flags = {
 	populateAllCountries: function() {
-
 	},
+	
 	resetAllCountries: function() {
 
 	},
