@@ -1,0 +1,6 @@
+$('#countries').append('<%= j render(@countries) %>');
+<% if @countries.next_page %>
+$('.pagination').replaceWith('<%= j will_paginate(@countries) %>');
+<% else %>
+$('.pagination').remove();
+<% end %>

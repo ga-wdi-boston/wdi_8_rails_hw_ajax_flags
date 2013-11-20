@@ -2,13 +2,7 @@
 <button id='populate-all-button'>Show All</button>
 <button id='reset_button'>Clear</button>
 
-<div class="digg_pagination">
-    <div class="page_info">
-      <%= page_entries_info @countries %>
-    </div>
-    <%= will_paginate @countries, :container => false %>
-  </div>
-  
+
 <div id= 'flags'>
 <% @countries.each do |country| %>
         <ul>
@@ -17,4 +11,7 @@
         </ul>
 <% end %>
 </div>
+
+
+
 
