@@ -1,0 +1,17 @@
+<button id='show-more-countries'>Next 20</button>
+<button id='populate-all-button'>Show All</button>
+<button id='reset_button'>Clear</button>
+
+
+<div id= 'flags'>
+<% @countries.each do |country| %>
+        <ul>
+        	<li><%= country.name %></li>
+        	<li><%= country.abbreviation %></li>
+        </ul>
+<% end %>
+</div>
+
+
+
+

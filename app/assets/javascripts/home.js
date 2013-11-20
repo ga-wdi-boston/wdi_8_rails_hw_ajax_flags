@@ -1,12 +1,13 @@
 var Flags = {
 	populateAllCountries: function() {
-
 	},
+	
 	resetAllCountries: function() {
 
 	},
 	showMoreCountries: function() {
-
+		$('.pagination .next_page').attr('href');
+		return $.getScript(url);
 	},
 	infiniteScroll: function() {
 
