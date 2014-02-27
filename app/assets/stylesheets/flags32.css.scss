@@ -3,7 +3,15 @@
  * Uses flags32.png as a sprite
  */
 
-.f32 .flag{display:inline-block;height:32px;width:32px;vertical-align:text-top;line-height:32px;background:url(flags32.png) no-repeat;}
+.f32 .flag{
+  display:inline-block;
+  height:32px;
+  width:32px;
+  vertical-align:text-top;
+  line-height:32px;
+  background:image-url(flags32.png) no-repeat;
+}
+/*
 .f32 ._African_Union(OAS){background-position:0 -32px;}
 .f32 ._Arab_League{background-position:0 -64px;}
 .f32 ._ASEAN{background-position:0 -96px;}
@@ -25,6 +33,7 @@
 .f32 ._Tibet{background-position:0 -608px;}
 .f32 ._United_Nations{background-position:0 -640px;}
 .f32 ._Wales{background-position:0 -672px;}
+*/
 .f32 .ad{background-position:0 -704px;}
 .f32 .ae{background-position:0 -736px;}
 .f32 .af{background-position:0 -768px;}

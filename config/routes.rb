@@ -1,5 +1,4 @@
 AjaxFlags::Application.routes.draw do
-  root :to => "home#index"
-  get "/countries/:step/:offset" => "home#countries"
-  get "/country/:id" => "home#country"
+  root to: 'home#index'
+  resources :countries, only: :index
 end
