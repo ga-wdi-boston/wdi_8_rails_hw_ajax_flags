@@ -11,7 +11,7 @@ var Flags = {
 	},
 
 	resetAllCountries: function() {
-
+		FlagApp.$countriesDiv.empty();
 	},
 	showMoreCountries: function() {
 
