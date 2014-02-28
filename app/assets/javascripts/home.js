@@ -32,7 +32,7 @@ var Flags = {
 		})
 	},
 	infiniteScroll: function() {
-		//Flags.showMoreCountries(Flags.shown_countries, 20);
+		Flags.showMoreCountries(Flags.shown_countries, 20);
 	}
 };
 
@@ -42,7 +42,11 @@ $(document).ready(function() {
 	$('#populate-all-button').click(Flags.populateAllCountries);
 	$('#reset-button').click(Flags.resetAllCountries);
 	//$('#show-more-countries-button').click(Flags.showMoreCountries(Flags.shown_countries, 20));
-	$(window).scroll(Flags.infiniteScroll);
+	$(window).scroll(function(){
+	       if($(document).height()==$(window).scrollTop()+$(window).height()){
+	       	Flags.infiniteScroll();
+	       }
+	   });
 
 	$('#show-more-countries-button').click(function(event) {
 	 	event.preventDefault();
@@ -64,7 +68,7 @@ Flags.renderCountry = function(country) {
 	var $all_countries = $('#all-countries'),
 	 		$country_div = $('<div id="country_' + country.id +'" class="f32">'),
 	 		$country_flag = $('<div class="flag ' + country.abbreviation + '">'),
-	 		$country_info = $('<div>', { id: 'country_' + country.id, class: 'country', html: country.name + ' (' + country.abbreviation + ')'});
+	 		$country_info = $('<div>', { id: 'country_' + country.id, class: 'country', html: country.name});
 
 	 		$country_div.append($country_flag, $country_info);
 	 		$all_countries.append($country_div);
