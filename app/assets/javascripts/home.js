@@ -18,7 +18,7 @@ var Flags = {
 			type: 'GET',
 			dataType: 'json'
 		}).done(function(data){
-			Flags.emptyCountries(data);
+			Flags.emptyCountries();
 		});
 	},
 	showMoreCountries: function() {
@@ -26,6 +26,10 @@ var Flags = {
 		Flags.populateAllCountries();
 	},
 	infiniteScroll: function() {
+		var win = $(window);
+		if(win.height() + win.scrollTop() >= $(document).height()) {
+		  Flags.showMoreCountries();
+		}
 	}
 };
 
@@ -39,6 +43,7 @@ $(document).ready(function() {
 });
 
 Flags.renderCountries = function(countries){
+	Flags.emptyCountries(countries);
 	var i = 0;
 	for(i; i < numCountries; i++){
 		Flags.renderCountry(countries[i]);
@@ -50,7 +55,7 @@ Flags.renderCountry = function(country){
 	this.$countriesDiv.append($countryDiv);
 }
 
-Flags.emptyCountries = function(country){
+Flags.emptyCountries = function(){
 	this.$countriesDiv.empty();
 }
 
