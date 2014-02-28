@@ -19,3 +19,4 @@ $(document).ready(function() {
 	$('#show-more-countries-button').click(Flags.showMoreCountries);
 	$(window).scroll(Flags.infiniteScroll);
 });
+
