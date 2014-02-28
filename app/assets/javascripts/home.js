@@ -47,6 +47,9 @@ FlagApp.renderAllCountries = function(countries) {
 FlagApp.renderCountry = function(country) {
 	var $countryDiv = $('<div class="flag ' + country.abbreviation + '">' + '</div>' );
 	var $countryLi = $('<li>' + country.name + ' (' + country.abbreviation + ') ' + '</li>');
+		if(country.north_america) {
+			$countryLi.addClass('america');
+		}
 	this.$countriesDiv.append($countryDiv);
 	this.$countriesDiv.append($countryLi);
 };
