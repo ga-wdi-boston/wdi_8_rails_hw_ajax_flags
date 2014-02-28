@@ -1,4 +1,7 @@
+var numCountries = 20;
+
 var Flags = {
+
 	populateAllCountries: function() {
 		$.ajax({
 			url: '/countries',
@@ -19,16 +22,16 @@ var Flags = {
 		});
 	},
 	showMoreCountries: function() {
-
+		numCountries = numCountries + 20;
+		Flags.populateAllCountries();
 	},
 	infiniteScroll: function() {
-
 	}
 };
 
 $(document).ready(function() {
 	Flags.$countriesDiv = $('#all_countries');
-
+	Flags.populateAllCountries();
 	$('#populate-all-button').click(Flags.populateAllCountries);
 	$('#reset-button').click(Flags.resetAllCountries);
 	$('#show-more-countries-button').click(Flags.showMoreCountries);
@@ -36,17 +39,18 @@ $(document).ready(function() {
 });
 
 Flags.renderCountries = function(countries){
-	var numCountries = countries.length, i = 0;
+	var i = 0;
 	for(i; i < numCountries; i++){
 		Flags.renderCountry(countries[i]);
 	}
 }
 
 Flags.renderCountry = function(country){
-	var $countryDiv = $('<div>', {text: country.name});
+	var $countryDiv = '<div>Name:' + country.name + '</div><div>Abbr:' + country.abbreviation + '</div>';
 	this.$countriesDiv.append($countryDiv);
 }
 
 Flags.emptyCountries = function(country){
 	this.$countriesDiv.empty();
 }
+
