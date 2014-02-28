@@ -2,13 +2,18 @@
 <html>
 <head>
   <title>AjaxFlags</title>
-  <%= stylesheet_link_tag    "application", media: "all" %>
+  <%= stylesheet_link_tag "application", media: "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+<div class="container">
+	<%= link_to 'Display all countries', countries_path, id: 'populate-all-button' %>
+	<%= link_to 'Clear countries list', '/', id: 'reset-button' %>
+	<%= link_to 'Show more countries', '/', id: 'show-more-countries-button' %>
 
+	<%= yield %>
+</div>
 </body>
 </html>
