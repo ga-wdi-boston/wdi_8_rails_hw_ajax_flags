@@ -25,7 +25,9 @@ var Flags = Flags || {};
 
 $(document).ready(function() {
 	Flags.countriesDiv = $('#all-countries');
+
 	$('#populate-all-button').click(Flags.populateAllCountries);
+	$('#reset-button').click(Flags.resetAllCountries);
 
 }); // end ready
 
@@ -43,6 +45,10 @@ Flags.populateAllCountries = function() {
 
 	return false;
 }; // end populateAllCountries
+
+Flags.resetAllCountries = function() {
+	Flags.countriesDiv.empty();
+}; // end resetAllCountries
 
 Flags.renderCountry = function(country) {
 	var countryDiv = '<div id=' + country.id + '>' +
