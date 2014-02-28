@@ -54,7 +54,7 @@ Flags.renderAllCountries = function (countries) {
 };
 
 Flags.renderTenCountries = function (countries) {
-	var length = 10 * Flags.loadCount, i = 10 * (Flags.loadCount - 1);
+	var length = 20 * Flags.loadCount, i = 20 * (Flags.loadCount - 1);
 
 	for (; i < length; ) {
 		if ( !countries[i] ) {
