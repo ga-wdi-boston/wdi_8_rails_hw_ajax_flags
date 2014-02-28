@@ -29,7 +29,7 @@ var Flags = {
 			});
 	},
 	resetAllCountries: function() {
-		alert('reset');
+		$('#all-countries').empty()
 	},
 	showMoreCountries: function() {
 		alert('show');
