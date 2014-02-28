@@ -1,39 +1,31 @@
 var Flags = {
 	populateAllCountries: function(event) {
 		event.preventDefault();
-		$.ajax({
-			url: '/countries',
-			type: 'GET',
-			dataType: 'json',
-		}).done(function(data){
-			Flags.renderAllCountries(data);
-		}).fail();
 
+		Flags.countriesEl.empty();
+		// Set this to a high number so no more countries to render
+		Flags.loadCount = 1000;
+
+		Flags.ajaxHelper(Flags.renderAllCountries);
 		return false;
 	},
 	resetAllCountries: function(event) {
 		event.preventDefault();
 		Flags.countriesEl.empty();
-
-		// Change this to infiniteScroll
-		Flags.populateAllCountries(event);
+		Flags.loadCount = 1;
 
 		return false;
 	},
 	showMoreCountries: function(event) {
 		event.preventDefault();
-		$.ajax({
-			url: '/countries',
-			type: 'GET',
-			dataType: 'json',
-		}).done(function(data){
-			Flags.renderTenCountries(data);
-		}).fail();
 
+		Flags.ajaxHelper(Flags.renderTenCountries);
 		return false;
 	},
 	infiniteScroll: function(event) {
 
+		Flags.scrollRender();
+		return false;
 	}
 };
 
@@ -65,6 +57,9 @@ Flags.renderTenCountries = function (countries) {
 	var length = 10 * Flags.loadCount, i = 10 * (Flags.loadCount - 1);
 
 	for (; i < length; ) {
+		if ( !countries[i] ) {
+			return false;
+		}
 		Flags.renderCountry(countries[i]);
 		i = i + 1;
 	}
@@ -85,3 +80,22 @@ Flags.renderCountry = function (country) {
 
 	Flags.countriesEl.append(countryEl);
 };
+
+// Helper functions
+Flags.ajaxHelper = function(renderFunction) {
+	$.ajax({
+		url: '/countries',
+		type: 'GET',
+		dataType: 'json',
+	}).done(function(data){
+		renderFunction(data);
+	}).fail();
+};
+
+Flags.scrollRender = function () {
+	var win = $(window);
+
+	if ( win.height() + win.scrollTop() >= $(document).height() ) {
+		Flags.ajaxHelper(Flags.renderTenCountries);
+	}
+}
