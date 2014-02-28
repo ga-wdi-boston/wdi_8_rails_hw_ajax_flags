@@ -37,7 +37,7 @@ Flags.renderCountry = function(country) {
 };
 
 Flags.resetAllCountries = function() {
-
+	Flags.$countriesDiv.empty();
 };
 
 Flags.showMoreCountries = function() {
