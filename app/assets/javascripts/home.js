@@ -1,6 +1,5 @@
 var Flags = {
 	populateAllCountries: function() {
-		$flagsDiv = $('#all-countries')
 		$.ajax({
 				url: '/countries',
 				type: 'GET',
@@ -8,42 +7,48 @@ var Flags = {
 			})
 			.done(function(data) {
 				Flags.renderCountries(data);
-
-				// function(comments) {
-				// 	var numComments = comments.length;
-				// 	for (var i = 0; i < numComments; i++) {
-				// 		CommentApp.renderComment(comments[i]);
-				// 	};
-				// };
-
-				// CommentApp.renderComment = function(comment) {
-				// 	var $commentDiv = $('<div>', {text: comment.content});
-				// 	this.$commentsDiv.append($commentDiv);
-				// };
+				console.log('all completed')
 			})
 			.fail(function() {
 				console.log("error");
 			})
 			.always(function() {
-				console.log("photos complete");
+				console.log("flags complete");
 			});
 	},
 	resetAllCountries: function() {
 		$('#all-countries').empty()
 	},
-	showMoreCountries: function() {
-		alert('show');
+	showMoreCountries: function(start, limit) {
+		$.ajax({
+			url: '/countries',
+			type: 'GET',
+			dataType: 'json',
+			data: {offset: start, limit: limit}
+
+		})
+		.done(function(data) {
+			Flags.renderCountries(data);
+		})
 	},
 	infiniteScroll: function() {
-		//alert('infinite');
+		//Flags.showMoreCountries(Flags.shown_countries, 20);
 	}
 };
 
 $(document).ready(function() {
+	Flags.shown_countries = 0;
+
 	$('#populate-all-button').click(Flags.populateAllCountries);
 	$('#reset-button').click(Flags.resetAllCountries);
-	$('#show-more-countries-button').click(Flags.showMoreCountries);
+	//$('#show-more-countries-button').click(Flags.showMoreCountries(Flags.shown_countries, 20));
 	$(window).scroll(Flags.infiniteScroll);
+
+	$('#show-more-countries-button').click(function(event) {
+	 	event.preventDefault();
+	 	Flags.showMoreCountries(Flags.shown_countries, 20);
+	 	return false;
+	});
 });
 
 
@@ -51,6 +56,7 @@ Flags.renderCountries = function(countries) {
 	var numFlags = countries.length;
 	for (var i = 0; i < numFlags; i++) {
 		Flags.renderCountry(countries[i]);
+		Flags.shown_countries += 1;
 	};
 };
 
