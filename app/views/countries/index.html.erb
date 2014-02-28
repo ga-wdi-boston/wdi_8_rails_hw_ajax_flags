@@ -1,0 +1,20 @@
+<h1> Countries (Full List) </h1>
+
+
+<ul class="f32">
+  <p><li class="flag ar">Argentina</li></p>
+  <p><li class="flag au">Australia</li></p>
+  <p><li class="flag at">Austria</li></p>
+</ul>
+
+
+<table style="width:300px" border="2px">
+	<% @countries.each do |country| %>
+	<tr>
+		<td><%=	country.name %></td>
+		<td><%=	country.north_america %></td>
+		<td><%= country.abbreviation %></td>
+	</tr>
+	<% end %>
+</table>
+

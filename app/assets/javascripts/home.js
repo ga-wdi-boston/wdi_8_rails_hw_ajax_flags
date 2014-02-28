@@ -7,6 +7,7 @@ var Flags = {
 	},
 	showMoreCountries: function() {
 
+
 	},
 	infiniteScroll: function() {
 
