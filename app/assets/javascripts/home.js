@@ -76,7 +76,7 @@ Flags.renderCountry = function (country) {
 		countryEl.addClass('north-american');
 	}
 
-	countryEl.append($('<p>', {html: country.name }));
+	countryEl.append($('<p>', {html: "Name: " + country.name + " Abbreviation: " + country.abbreviation }));
 
 	Flags.countriesEl.append(countryEl);
 };
