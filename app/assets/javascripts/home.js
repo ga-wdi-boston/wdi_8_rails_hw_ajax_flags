@@ -9,7 +9,11 @@ var Flags = {
 
 	},
 	infiniteScroll: function() {
-
+		var win = $(window);
+    // Infinite scroll math!
+    if(win.height() + win.scrollTop() >= $(document).height()) {
+      showMoreCountries();
+    }
 	}
 };
 
