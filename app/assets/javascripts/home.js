@@ -73,7 +73,7 @@ Flags.renderCountry = function(country) {
 	var countryDiv = '<div id=' + country.id + '>' +
 											country.name +
 											' (' + country.abbreviation.toUpperCase() + ') ' +
-											"flag will go here";
+											'<span class="flag ' + country.abbreviation + '"></span>';
 	Flags.countriesDiv.append(countryDiv);
 }; // end renderCountry
 
