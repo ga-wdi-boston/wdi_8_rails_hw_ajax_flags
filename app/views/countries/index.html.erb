@@ -1,20 +1,20 @@
 <h1> Countries (Full List) </h1>
 
 
-<ul class="f32">
-  <p><li class="flag ar">Argentina</li></p>
-  <p><li class="flag au">Australia</li></p>
-  <p><li class="flag at">Austria</li></p>
-</ul>
-
-
-<table style="width:300px" border="2px">
+<table border="0.5px">
 	<% @countries.each do |country| %>
-	<tr>
-		<td><%=	country.name %></td>
-		<td><%=	country.north_america %></td>
-		<td><%= country.abbreviation %></td>
-	</tr>
+	<div id="one">
+		<tr class="f32">
+			<td class="flag <%=country.abbreviation%>"> </td>
+			<td><%=	country.name %></td>
+			<td><%= country.abbreviation %></td>
+			<td>
+				<% if country.north_america == true %>
+				<%= "***" %>
+				<% end %>
+			</td>
+		</tr>
+	</div>
 	<% end %>
 </table>
 

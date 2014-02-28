@@ -1,4 +1,7 @@
 var Flags = {
+	showOne: function() {
+		$('#countries-list').append();
+	},
 	populateAllCountries: function() {
 
 	},
@@ -19,4 +22,18 @@ $(document).ready(function() {
 	$('#reset-button').click(Flags.resetAllCountries);
 	$('#show-more-countries-button').click(Flags.showMoreCountries);
 	$(window).scroll(Flags.infiniteScroll);
-});
+
+	$.ajax({
+		url: 'http://localhost:3000/countries.html',
+		type: 'GET',
+		dataType: 'html'
+	})
+	.done(function(data) {
+		console.log(data);
+		debugger
+	})
+
+}); //end document.ready()
+
+
+
