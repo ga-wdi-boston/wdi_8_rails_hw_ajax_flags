@@ -4,21 +4,23 @@ $(document).ready(function() {
 	$('#reset-button').click(Flags.resetAllCountries);
 	$('#show-more-countries-button').click(Flags.showMoreCountries);
 	$(window).scroll(Flags.infiniteScroll);
+	Flags.countriesShown = 0;
 
-	$.ajax({
-		url: '/countries',
-		type: 'GET',
-		dataType: 'json'
-	})
-	.done(function(data) {
-		var numCountries = data.length, i = 0;
-		for(i; i < 21; i++) {
-	  	Flags.renderCountry(data[i]);
-		};
-	})
-	.fail(function() {
-		console.log("error");
-	})
+	// $.ajax({
+	// 	url: '/countries',
+	// 	type: 'GET',
+	// 	dataType: 'json'
+	// })
+	// .done(function(data) {
+	// 	var numCountries = data.length, i = 0;
+	// 	for(i; i < 21; i++) {
+				// Flags.countriesShown += 1
+	//   	Flags.renderCountry(data[i]);
+	// 	};
+	// })
+	// .fail(function() {
+	// 	console.log("error");
+	// })
 });
 
 var Flags = Flags || {};
@@ -32,7 +34,8 @@ Flags.populateAllCountries = function(countries) {
 	})
 	.done(function(data) {
 		var numCountries = data.length, i = 0;
-		for(i; i > 20; i++) {
+		for(i; i < numCountries; i++) {
+			Flags.countriesShown += 1;
 	  	Flags.renderCountry(data[i]);
 		};
 	})
@@ -42,7 +45,7 @@ Flags.populateAllCountries = function(countries) {
 };
 
 Flags.renderCountry = function(country) {
-	if(country !== undefined) {
+	if(Flags.$countriesDiv) {
 		var countryDiv = '<div data-bool= ' + country.north_america  + ' id='+ country.id +'>';
 			  countryDiv += ' Name: ' + country.name + ' (' + country.abbreviation + ')';
 			  countryDiv += '<span class="flag ' + country.abbreviation + '"></span>'
@@ -55,13 +58,24 @@ Flags.resetAllCountries = function() {
 	Flags.$countriesDiv.empty();
 };
 
-Flags.showMoreCountries = function() {
-
+Flags.showMoreCountries = function(start, limit) {
+	$.ajax({
+		url: '/countries',
+		type: 'GET',
+		dataType: 'json',
+		data: {offset: start, limit: limit},
+	})
+	.done(function(data) {
+		Flags.populateAllCountries(data);
+	})
+	.fail(function() {
+		console.log("error");
+	})
 };
 
 Flags.infiniteScroll = function() {
 	var win = $(window);
   if(win.height() + win.scrollTop() >= $(document).height()) {
-    showMoreCountries();
+    Flags.showMoreCountries(Flags.countriesShown, 20);
   };
 };
