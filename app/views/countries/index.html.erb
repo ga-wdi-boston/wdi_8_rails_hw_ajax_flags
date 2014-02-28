@@ -1,9 +1,8 @@
 <h1> Countries (Full List) </h1>
 
 
-<table border="0.5px">
+<table id= "table-html" border="0.5px">
 	<% @countries.each do |country| %>
-	<div id="one">
 		<tr class="f32">
 			<td class="flag <%=country.abbreviation%>"> </td>
 			<td><%=	country.name %></td>
@@ -14,7 +13,6 @@
 				<% end %>
 			</td>
 		</tr>
-	</div>
 	<% end %>
 </table>
 

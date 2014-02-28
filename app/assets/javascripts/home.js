@@ -1,8 +1,12 @@
 var Flags = {
-	showOne: function() {
-		$('#countries-list').append();
-	},
-	populateAllCountries: function() {
+	showSomething: function(data) {
+ 		var $data = data,
+ 				$countries_list = $('countries-list'),
+ 				$one = $('#one');
+
+ 		$countries_list.append($one);
+  },
+  populateAllCountries: function() {
 
 	},
 	resetAllCountries: function() {
@@ -24,12 +28,13 @@ $(document).ready(function() {
 	$(window).scroll(Flags.infiniteScroll);
 
 	$.ajax({
-		url: 'http://localhost:3000/countries.html',
+		url: '/countries',
 		type: 'GET',
 		dataType: 'html'
 	})
 	.done(function(data) {
 		console.log(data);
+		Flags.showSomething(data);
 		debugger
 	})
 
