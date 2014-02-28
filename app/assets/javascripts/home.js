@@ -31,8 +31,10 @@ FlagApp.renderAllCountries = function(countries) {
 };
 
 FlagApp.renderCountry = function(country) {
-	var $countryDiv = $('<div>'+ country.name + ' (' + country.abbreviation + ') ' + '</div>' );
+	var $countryDiv = $('<div class="flag ' + country.abbreviation + '">' + '</div>' );
+	var $countryLi = $('<li>' + country.name + ' (' + country.abbreviation + ') ' + '</li>');
 	this.$countriesDiv.append($countryDiv);
+	this.$countriesDiv.append($countryLi);
 }
 
 $(document).ready(function() {
