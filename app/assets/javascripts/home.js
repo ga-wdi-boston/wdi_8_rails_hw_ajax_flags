@@ -67,7 +67,7 @@ Flags.renderAllCountries = function(countries, showAll) {
 
 Flags.renderCountry = function(country) {
 	if(country !== undefined){
-		var countryDiv = '<div data-bool= ' + country.north_america  + ' id='+ country.id +'>';
+		var countryDiv = '<div class= "NorthAmerica ' + country.north_america  + '" id='+ country.id +'>';
 			  countryDiv += ' Name: ' + country.name + ' Abbreviation: ' + country.abbreviation;
 			  countryDiv += '<span class="flag ' + country.abbreviation + '"></span>'
 			  countryDiv += '</div>'
