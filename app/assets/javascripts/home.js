@@ -8,7 +8,11 @@ var Flags = {
 			type: 'GET',
 			dataType: 'json'
 		}).done(function(data){
-			Flags.renderCountries(data);
+			Flags.emptyCountries();
+			var numOfCountries = 20, i = 0;
+			for(i; i < numOfCountries; i++){
+				Flags.renderCountry(data[i]);
+			}
 		});
 
 	},
@@ -22,9 +26,16 @@ var Flags = {
 		});
 	},
 	showMoreCountries: function() {
-		numCountries = numCountries + 20;
-		Flags.populateAllCountries();
+		$.ajax({
+			url: '/countries',
+			type: 'GET',
+			dataType: 'json'
+		}).done(function(data){
+			numCountries = numCountries + 20;
+			Flags.renderCountries(data);
+		});
 	},
+
 	infiniteScroll: function() {
 		var win = $(window);
 		if(win.height() + win.scrollTop() >= $(document).height()) {
@@ -43,7 +54,7 @@ $(document).ready(function() {
 });
 
 Flags.renderCountries = function(countries){
-	Flags.emptyCountries(countries);
+	Flags.emptyCountries();
 	var i = 0;
 	for(i; i < numCountries; i++){
 		Flags.renderCountry(countries[i]);
@@ -51,8 +62,11 @@ Flags.renderCountries = function(countries){
 }
 
 Flags.renderCountry = function(country){
-	var $countryDiv = '<div>Name:' + country.name + '</div><div>Abbr:' + country.abbreviation + '</div>';
-	this.$countriesDiv.append($countryDiv);
+	if(country !== undefined){
+		var $countryDiv = '<div>Name:' + country.name + '</div><div>Abbr:' + country.abbreviation + '</div>';
+				$countryDiv += '<span class="flag ' + country.abbreviation + '"></span>'
+		this.$countriesDiv.append($countryDiv);
+	}
 }
 
 Flags.emptyCountries = function(){
