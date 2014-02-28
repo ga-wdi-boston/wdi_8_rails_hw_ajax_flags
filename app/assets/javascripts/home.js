@@ -26,7 +26,6 @@ var Flags = Flags || {};
 $(document).ready(function() {
 	Flags.countriesDiv = $('#all-countries');
 	Flags.loadCount = 0;
-	Flags.timesRendered = 0;
 
 	$('#populate-all-button').click(Flags.populateAllCountries);
 	$('#reset-button').click(Flags.resetAllCountries);
@@ -87,14 +86,14 @@ Flags.renderAllCountries = function(countries) {
 
 Flags.renderNext20Countries = function(countries) {
 
-	var i = 0, timesRendered = 0;
+	var i = Flags.loadCount,
+			length = Flags.loadCount + 20;
 
-	for (i; i < 20; i = i + 1) {
+	for (i; i < length; i = i + 1) {
 		Flags.renderCountry(countries[i]);
-		Flags.loadCount = Flags.loadCount + 1;
 	}; // end for loop
 
-	Flags.timesRendered = Flags.timesRendered + 1;
+		Flags.loadCount = Flags.loadCount + 20;
 
 
 
