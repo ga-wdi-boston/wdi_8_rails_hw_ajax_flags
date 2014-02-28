@@ -1,0 +1,8 @@
+<h1>Countries in the world, yo</h1>
+
+<%= button_to 'Load All', root_path, id: 'populate-all-button', remote: true, method: :get %>
+<%= button_to 'Load next 20', root_path, id: 'reset-button', remote: true, method: :get %>
+<%= button_to 'Clear', root_path, id: 'show-more-countries-button', remote: true, method: :get %>
+
+<div id="all-countries">
+</div>
