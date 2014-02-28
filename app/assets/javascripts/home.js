@@ -19,9 +19,7 @@ var Flags = {
 			Flags.offset += response.length;
 		});
 	},
-	// showMoreCountries doubles as populateAllCountries
 	showMoreCountries: function() {
-		// args is the data object passed in from click handler
 		$.ajax({
 			url: "/countries",
 			type: "GET",
