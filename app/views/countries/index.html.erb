@@ -1,0 +1,7 @@
+<h1>Countries</h1>
+
+<ul id='country'>
+	<% @countries.each do |country| %>
+		<li id='country_<%=country.id%>'> Name: <%=country.name %> Abbreviation: <%=country.abbreviation%>
+		</li>
+<% end %>
