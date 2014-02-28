@@ -95,21 +95,4 @@ Flags.renderNext20Countries = function(countries) {
 
 		Flags.loadCount = Flags.loadCount + 20;
 
-
-
-
-
-		// var length = 20,
-		// 		i = 20 * (Flags.loadCount - 1);
-
-		// for (i; i < length; ) {
-		// 	if ( !countries[i] ) {
-		// 		return false;
-		// 	}
-		// 	Flags.renderCountry(countries[i]);
-		// 	i = i + 1;
-		// }
-
-		// Flags.loadCount = Flags.loadCount + 1;
-
 }; // end renderNext20Countries
