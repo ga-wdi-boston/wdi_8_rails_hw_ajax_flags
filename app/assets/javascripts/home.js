@@ -21,7 +21,7 @@ var Flags = {
 			dataType: 'json',
 		})
 		.done(function(data){
-			for(i=0; i < data.length; i+=20) {
+			for(i = 0; i < data.length; i += 20) {
 				FlagApp.renderCountry(data[i]);
 			}
 		});
