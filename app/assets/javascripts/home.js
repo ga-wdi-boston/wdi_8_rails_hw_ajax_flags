@@ -14,8 +14,17 @@ var Flags = {
 		FlagApp.$countriesDiv.empty();
 	},
 	showMoreCountries: function() {
-
+		$.ajax({
+			url: '/countries',
+			type: 'get',
+			dataType: 'json',
+			// data: {startRow: startRow, endRow: endRow},
+		})
+		.done(function(data){
+			FlagApp.renderTwentyCountries(data);
+		});
 	},
+
 	infiniteScroll: function() {
 
 	}
@@ -26,6 +35,12 @@ var FlagApp = FlagApp || {}
 FlagApp.renderAllCountries = function(countries) {
 	var numCountries = countries.length, i = 0;
 		for(; 1 < numCountries; i++) {
+			FlagApp.renderCountry(countries[i]);
+		}
+};
+
+FlagApp.renderTwentyCountries = function(countries) {
+		for(var i = 1; i < 20; i++) {
 			FlagApp.renderCountry(countries[i]);
 		}
 };
