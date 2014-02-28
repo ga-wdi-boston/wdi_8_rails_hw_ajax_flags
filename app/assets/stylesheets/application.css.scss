@@ -12,11 +12,59 @@
  *= require_tree .
  */
 
+ body {
+ 	background: url('http://i.imgur.com/uqp4RX6.jpg') no-repeat center center fixed;
+ 	-wekbit-background-size: cover;
+ 	-moz-background-size: cover;
+ 	background-size: cover;
+ }
+
 .container {
-	width: 80%;
+	width: 50%;
 	margin: 0 auto;
+}
+
+.boxy {
+	background-color: rgba(255, 255, 255, 0.8);
+	padding: 20px;
+	margin-bottom: 20px;
+}
+
+#country-list {
+	background-color: rgba(255, 255, 255, 0.8);
+	padding: 10px;
 }
 
 .country {
 	display: inline-block;
+}
+
+.country_text {
+	line-height: 35px;
+	margin-top: 10px;
+	vertical-align: middle;
+	margin-left: 20px;
+	display: inline-block;
+	padding-top: 14px;
+}
+
+.north_america {
+	background-color: whitesmoke;
+}
+
+.f32 {
+	padding: 10px;
+	margin-top: 10px;
+	&:first-child {
+		border-top: 1px solid #ccc;
+	}
+	border-bottom: 1px solid #ccc;
+}
+
+.btn {
+	padding: 10px 15px;
+	background-color: tomato;
+	border-radius: 2px;
+	color: #fff;
+	text-decoration: none;
 }

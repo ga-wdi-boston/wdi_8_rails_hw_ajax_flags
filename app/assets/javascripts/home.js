@@ -12,7 +12,11 @@ var Flags = {
 		var $countries_list = $('#country-list'),
 			$country_div = $('<div id="country_' + country.id +'" class="f32">'),
 			$country_flag = $('<div class="flag ' + country.abbreviation + '">'),
-			$country_info = $('<div>', { id: 'country_' + country.id, class: 'country', html: country.name + ' (' + country.abbreviation + ')'});
+			$country_info = $('<p>', { id: 'country_' + country.id, class: 'country_text', html: country.name + ' (' + country.abbreviation + ')'});
+
+		if (country.north_america) {
+			$country_div.addClass('north_america');
+		}
 
 		$country_div.append($country_flag, $country_info);
 		$countries_list.append($country_div);
