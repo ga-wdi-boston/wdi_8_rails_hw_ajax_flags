@@ -25,7 +25,26 @@ var Flags = {
 	},
 
 	showMoreCountries: function() {
+		$.ajax({
+      url: '/countries',
+      type: 'GET',
+      dataType: 'json',
+      data: {limit: 20, offset: Flags.offset}
+    })
 
+    .done(function(data) {
+      console.log("success");
+      Flags.renderCountries(data);
+      Flags.offset += data.length;
+    })
+
+    .fail(function() {
+      console.log("error");
+    })
+
+    .always(function() {
+      console.log("complete");
+    });
 
 	},
 
