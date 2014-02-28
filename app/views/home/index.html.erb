@@ -1,10 +1,6 @@
 <h2>Flags of the World</h2>
 
 <% @countries.each do |country| %>
-<div class='f32'>
-  <span><%= country.name %></span>
-  <span class="flag <%=country.abbreviation %>"></span>
-  <span><%= country.abbreviation %></span>
-</div>
+ <%= render country %>
 <% end %>
 
