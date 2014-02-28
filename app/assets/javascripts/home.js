@@ -45,7 +45,6 @@ var Flags = {
     .always(function() {
       console.log("complete");
     });
-
 	},
 
 	clearAllCountries: function() {
@@ -72,6 +71,14 @@ var Flags = {
 		return $countryLi;
 	},
 
+	nextTwenty: function() {
+		if(Flags.offset < 272){
+   		if($(window).scrollTop() + $(window).height() == $(document).height()) {
+      	Flags.showMoreCountries();
+    	}
+  	}
+   },
+
 	renderCountries: function(countries){
 		var i = 0, length = countries.length;
 
@@ -89,5 +96,5 @@ $(document).ready(function() {
 	$('#populate-all-button').click(Flags.getAllCountries);
 	$('#clear-button').click(Flags.clearAllCountries);
 	$('#show-more-countries-button').click(Flags.showMoreCountries);
-	$(window).scroll(Flags.showMoreCountries);
+	$(window).scroll(Flags.nextTwenty);
 });
