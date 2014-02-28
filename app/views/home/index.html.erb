@@ -1,16 +1,10 @@
 <h2>Flags of the World</h2>
 
-<ul class='f32'>
-
 <% @countries.each do |country| %>
-  <table="height=400px">
-  <tr class='flag'>
-    <td>Name: <%=country.name %></td>
-    <td>Abbreviation: <%=country.abbreviation %></td>
-    <td>North America: <%=country.north_america%></td><br>
-  </tr>
-  </table>
+<div class='f32'>
+  <span><%= country.name %></span>
+  <span class="flag <%=country.abbreviation %>"></span>
+  <span><%= country.abbreviation %></span>
+</div>
 <% end %>
 
-</ul>
-<br>
