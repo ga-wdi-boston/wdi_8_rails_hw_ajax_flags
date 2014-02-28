@@ -9,7 +9,11 @@
   width:32px;
   vertical-align:text-top;
   line-height:32px;
-  background:image-url(flags32.png) no-repeat;
+  background:image-url('flags32.png') no-repeat;
+}
+
+.north-american {
+  border: 2px solid AliceBlue;
 }
 /*
 .f32 ._African_Union(OAS){background-position:0 -32px;}

@@ -7,7 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<header>
+  <h1>Flags Infinite Scroll</h1>
+  <nav>
+    <a href="#" id="populate-all-button"> Populate All Countries</a>
+    <a href="#" id="reset-button">Reset Page</a>
+    <a href="#" id="show-more-countries-button">Show More Countries</a>
+  </nav>
+</header>
 <%= yield %>
 
 </body>
