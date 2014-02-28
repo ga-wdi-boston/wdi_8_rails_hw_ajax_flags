@@ -18,7 +18,6 @@ var Flags = {
 			url: '/countries',
 			type: 'get',
 			dataType: 'json',
-			// data: {startRow: startRow, endRow: endRow},
 		})
 		.done(function(data){
 			FlagApp.renderTwentyCountries(data);
@@ -40,7 +39,8 @@ FlagApp.renderAllCountries = function(countries) {
 };
 
 FlagApp.renderTwentyCountries = function(countries) {
-		for(var i = 1; i < 20; i++) {
+	var numCountries = countries.length;
+		for(var i = 1; i < numCountries; i+=20) {
 			FlagApp.renderCountry(countries[i]);
 		}
 };
