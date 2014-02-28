@@ -71,9 +71,9 @@ Flags.loadNext20Countries = function() {
 
 Flags.renderCountry = function(country) {
 	var countryDiv = '<div id=' + country.id + '>' +
+											'<span class="flag ' + country.abbreviation + '"></span>' +
 											country.name +
-											' (' + country.abbreviation.toUpperCase() + ') ' +
-											'<span class="flag ' + country.abbreviation + '"></span>';
+											' (' + country.abbreviation.toUpperCase() + ') ';											;
 	Flags.countriesDiv.append(countryDiv);
 }; // end renderCountry
 
