@@ -70,6 +70,10 @@ Flags.renderCountry = function(country) {
 	 		$country_flag = $('<div class="flag ' + country.abbreviation + '">'),
 	 		$country_info = $('<div>', { id: 'country_' + country.id, class: 'country', html: country.name});
 
+	 		if (country.north_america) {
+	 			$country_div.addClass('north_america');
+	 			}
+
 	 		$country_div.append($country_flag, $country_info);
 	 		$all_countries.append($country_div);
 }
