@@ -63,9 +63,15 @@ Flags.renderCountries = function(countries){
 
 Flags.renderCountry = function(country){
 	if(country !== undefined){
-		var $countryDiv = '<div>Name:' + country.name + '</div><div>Abbr:' + country.abbreviation + '</div>';
-				$countryDiv += '<span class="flag ' + country.abbreviation + '"></span>'
-		this.$countriesDiv.append($countryDiv);
+		if (country.north_america === true){
+			var $countryDiv = '<div class="north-america">Name:' + country.name + '</div><div>Abbr:' + country.abbreviation + '</div>';
+					$countryDiv += '<span class="flag ' + country.abbreviation + '"></span>'
+		} else {
+			var $countryDiv = '<div>Name:' + country.name + '</div><div>Abbr:' + country.abbreviation + '</div>';
+					$countryDiv += '<span class="flag ' + country.abbreviation + '"></span>'
+		}
+			this.$countriesDiv.append($countryDiv);
+
 	}
 }
 
