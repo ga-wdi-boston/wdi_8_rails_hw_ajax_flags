@@ -13,6 +13,7 @@ var Flags = {
 	resetAllCountries: function() {
 		FlagApp.$countriesDiv.empty();
 	},
+
 	showMoreCountries: function() {
 		$.ajax({
 			url: '/countries',
@@ -20,12 +21,17 @@ var Flags = {
 			dataType: 'json',
 		})
 		.done(function(data){
-			FlagApp.renderTwentyCountries(data);
+			for(i=0; i < data.length; i+=20) {
+				FlagApp.renderCountry(data[i]);
+			}
 		});
 	},
 
 	infiniteScroll: function() {
-
+		var win = $(window);
+		 if(win.height() + win.scrollTop() >= $(document).height()) {
+      Flags.showMoreCountries();
+    }
 	}
 };
 
@@ -38,19 +44,12 @@ FlagApp.renderAllCountries = function(countries) {
 		}
 };
 
-FlagApp.renderTwentyCountries = function(countries) {
-	var numCountries = countries.length;
-		for(var i = 1; i < numCountries; i+=20) {
-			FlagApp.renderCountry(countries[i]);
-		}
-};
-
 FlagApp.renderCountry = function(country) {
 	var $countryDiv = $('<div class="flag ' + country.abbreviation + '">' + '</div>' );
 	var $countryLi = $('<li>' + country.name + ' (' + country.abbreviation + ') ' + '</li>');
 	this.$countriesDiv.append($countryDiv);
 	this.$countriesDiv.append($countryLi);
-}
+};
 
 $(document).ready(function() {
 	$('#populate-all-button').click(Flags.populateAllCountries);
