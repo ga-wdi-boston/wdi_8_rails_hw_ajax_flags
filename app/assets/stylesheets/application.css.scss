@@ -11,3 +11,22 @@
  *= require_self
  *= require_tree .
  */
+
+body{
+	font-family: Helvetica, Arial, Sans-Serif;
+	background:#7AA9DD;
+	color: black;
+	padding: 5%;
+}
+
+.header {
+	text-align: center;
+}
+
+div {
+	padding: 2%;
+}
+
+.NorthAmerica.true {
+	font-weight: bold;
+}
